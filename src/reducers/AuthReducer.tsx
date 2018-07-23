@@ -1,9 +1,5 @@
 import {LOGIN_SUCCESS} from '../actions/types';
-
-interface IAction {
-  type: string;
-  payload: {};
-}
+import {IAction} from './';
 
 interface IAuth {
   access_token: string;

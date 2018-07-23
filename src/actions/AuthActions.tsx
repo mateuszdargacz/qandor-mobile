@@ -6,7 +6,7 @@ import {LOGIN_SUCCESS} from './types';
 
 export const login = (username: string, password: string, remember: boolean) => {
   return(dispatch: Redux.Dispatch<any>) => {
-    axios.post(`{API_URL}/login`, {username, password})
+    axios.post(`${API_URL}/login`, {username, password})
       .then((response) => dispatch({type: LOGIN_SUCCESS, payload: response}))
       .catch((error) => console.log(error));
   };
@@ -14,8 +14,8 @@ export const login = (username: string, password: string, remember: boolean) => 
 
 export const register = (username: string, password: string, email: string) => {
   return(dispatch: Redux.Dispatch<any>) => {
-    axios.post(`{API_URL}/signup`, {username, password, email})
-      .then(() => dispatch(NavigationActions.navigate({routeName: 'LoginForm'})))
+    axios.post(`${API_URL}/signup`, {username, password, email})
+      .then(() => dispatch(NavigationActions.navigate({routeName: 'Login'})))
       .catch((error) => console.log(error));
   };
 };

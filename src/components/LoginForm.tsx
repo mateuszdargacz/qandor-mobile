@@ -81,7 +81,7 @@ export default class LoginForm extends React.Component<any, any> {
               textStyle={{fontWeight: 'bold'}}
               buttonStyle={styles.signInButton}
               // onPress={() => this.props.login(this.state.username, this.state.password, this.state.rememberMe)}
-              onPress={() => this.props.navigation.navigate('Chat')}
+              onPress={() => this.props.navigation.navigate('MainScreen')}
             />
           </View>
           <View style={{flex: 1}}>

@@ -11,24 +11,49 @@ import LoginForm from './components/LoginForm';
 import Messages from './components/Messages';
 import RegisterForm from './components/RegisterForm';
 import Teams from './components/Teams';
+import Profile from './components/Profile';
 import {IState} from './reducers/AuthReducer';
+
+const navigationOptions = {
+  headerStyle: {
+    backgroundColor: '#2077f5',
+  },
+  headerTitleStyle: {
+    color: 'white',
+  },
+};
 
 const TeamsNav = StackNavigator({
   Teams: {screen: Teams},
+}, {
+  navigationOptions: {...navigationOptions},
 });
 
 const MessagesNav = StackNavigator({
   Messages: {screen: Messages},
+  Chat: {screen: Chat, navigationOptions: { tabBarVisible: false  }},
+  Profile: {screen: Profile},
+}, {
+  navigationOptions: {...navigationOptions},
 });
 
 const TabBar = TabNavigator({
   Teams: {screen: TeamsNav},
-  Chat: {screen: MessagesNav},
+  Conversations: {screen: MessagesNav},
   Directory: {screen: Directory},
 }, {
-  animationEnabled: true,
+  animationEnabled: false,
   tabBarComponent: TabBarBottom,
   tabBarPosition: 'bottom',
+  initialRouteName: 'Conversations',
+  swipeEnabled: false,
+  tabBarOptions: {
+    activeTintColor: '#2077f5',
+    inactiveTintColor: '#c6c6c6',
+    activeBackgroundColor: '#fff',
+    inactiveBackgroundColor: '#fff',
+    showLabel: false,
+  },
 });
 
 const BaseRouter = StackNavigator({
