@@ -8,12 +8,22 @@ import Chat from './components/Chat';
 import Directory from './components/Directory';
 import LoadingScreen from './components/LoadingScreen';
 import LoginForm from './components/LoginForm';
+import Messages from './components/Messages';
+import RegisterForm from './components/RegisterForm';
 import Teams from './components/Teams';
 import {IState} from './reducers/AuthReducer';
 
-const TabBar = TabNavigator({
+const TeamsNav = StackNavigator({
   Teams: {screen: Teams},
-  Chat: {screen: Chat},
+});
+
+const MessagesNav = StackNavigator({
+  Messages: {screen: Messages},
+});
+
+const TabBar = TabNavigator({
+  Teams: {screen: TeamsNav},
+  Chat: {screen: MessagesNav},
   Directory: {screen: Directory},
 }, {
   animationEnabled: true,
@@ -24,6 +34,7 @@ const TabBar = TabNavigator({
 const BaseRouter = StackNavigator({
   Login: {screen: LoginForm},
   Loading: {screen: LoadingScreen},
+  RegisterForm: {screen: RegisterForm},
   MainScreen: {screen: TabBar},
 }, {
   headerMode: 'none',

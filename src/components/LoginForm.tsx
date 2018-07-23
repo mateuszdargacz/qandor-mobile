@@ -1,10 +1,15 @@
 import * as React from 'react';
 import {Image, StyleSheet, Text, TextInput, View} from 'react-native';
-import {connect} from 'react-redux';
 import {IState} from '../reducers/AuthReducer';
+
+const { connect } = require('react-redux');
 const ReactElements = require('react-native-elements');
 
-// @connect()
+import { login } from '../actions/AuthActions';
+
+@connect(
+  null, { login },
+)
 export default class LoginForm extends React.Component<any, any> {
   constructor(props: any) {
     super(props);
@@ -17,6 +22,7 @@ export default class LoginForm extends React.Component<any, any> {
   }
 
   public render() {
+    console.log('login form: ', this.props);
     return (
       <View style={styles.container}>
         <View style={styles.top}>
@@ -33,6 +39,8 @@ export default class LoginForm extends React.Component<any, any> {
               value={this.state.username}
               placeholder="Username"
               placeholderTextColor="#2078f5"
+              autoCapitalize="none"
+              autoCorrect={false}
             />
             <TextInput
               style={styles.inputStyle}
@@ -41,6 +49,8 @@ export default class LoginForm extends React.Component<any, any> {
               value={this.state.password}
               placeholder="Password"
               placeholderTextColor="#2078f5"
+              autoCapitalize="none"
+              autoCorrect={false}
             />
           </View>
           <View style={styles.loginOptionStyle}>
@@ -48,15 +58,16 @@ export default class LoginForm extends React.Component<any, any> {
               checked={this.state.rememberMe}
               onPress={() => this.setState({rememberMe: !this.state.rememberMe})}
               title="Remember Me"
+              textStyle={{fontSize: 13, color: '#b6b6b6'}}
               style={styles.rememberMeStyle}
               checkedColor="#2077f4"
             />
-            <ReactElements.Button
+            {/* <ReactElements.Button
               title="Forgot Passwort?"
               textStyle={styles.forgotPassStyle}
               backgroundColor="transparent"
               buttonStyle={styles.forgotPasswdStyle}
-            />
+            /> */}
           </View>
         </View>
         <View style={styles.bottom}>
@@ -64,19 +75,23 @@ export default class LoginForm extends React.Component<any, any> {
             <ReactElements.Button
               large
               title="SIGN IN"
-              borderRadius={5}
+              borderRadius={4}
               disabled={!this.state.signIn}
               backgroundColor="#2077f4"
               textStyle={{fontWeight: 'bold'}}
               buttonStyle={styles.signInButton}
+              // onPress={() => this.props.login(this.state.username, this.state.password, this.state.rememberMe)}
+              onPress={() => this.props.navigation.navigate('Chat')}
             />
           </View>
           <View style={{flex: 1}}>
-            <Text style={{textAlign: 'center'}}>Don't have an account?</Text>
+            <Text style={{textAlign: 'center', color: '#c7c7c7'}}>Don't have an account?</Text>
             <ReactElements.Button
               title="SIGN UP"
               backgroundColor="transparent"
-              textStyle={styles.signUpButton}
+              textStyle={styles.signUpButtonText}
+              onPress={() => this.props.navigation.navigate('RegisterForm')}
+              buttonStyle={styles.buttonStyle}
             />
           </View>
         </View>
@@ -106,34 +121,38 @@ const styles = StyleSheet.create({
     flex: 3,
     justifyContent: 'center',
     paddingTop: 50,
-    width: '80%',
+    width: '90%',
   },
   ImageContainerStyle: {
-    flex: 3,
+    flex: 4,
     justifyContent: 'center',
     alignItems: 'center',
   },
   ImageStyle: {
-    height: 150,
-    width: 150,
+    height: 180,
+    width: 180,
   },
   inputContainerStyle: {
     flex: 3,
   },
   inputStyle: {
     width: '100%',
-    height: 40,
-    borderRadius: 5,
+    height: 50,
+    borderRadius: 4,
     backgroundColor: '#efefef',
     marginTop: 10,
     marginBottom: 10,
-    padding: 5,
+    padding: 10,
+    color: '#2078f5',
   },
   loginOptionStyle: {
     flex: 1,
     width: '100%',
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
+    // borderWidth: 1,
+    // borderColor: '#000',
   },
   rememberMeStyle: {
     height: 20,
@@ -151,14 +170,26 @@ const styles = StyleSheet.create({
   },
   bottom: {
     flex: 2,
-    width: '80%',
+    width: '90%',
+    paddingBottom: 20,
+    // borderWidth: 1,
+    // borderColor: '#000',
   },
   signInButton: {
     margin: 0,
+    marginTop: 30,
     marginLeft: -15,
     marginRight: -15,
+    height: 55,
   },
-  signUpButton: {
+  buttonStyle: {
+    margin: 0,
+    padding: 0,
+    marginTop: 10,
+    // borderWidth: 1,
+    // borderColor: '#000',
+  },
+  signUpButtonText: {
     color: '#2078f5',
     fontWeight: 'bold',
   },
