@@ -11,13 +11,24 @@ import { getMessages } from '../actions/ConversationActions';
 export default class ConversationItem extends React.Component<any, any> {
   constructor(props: any) {
     super(props);
+    this.state = {
+      enable: true,
+    };
+  }
+
+  public componentDidUpdate(prevProps: any, prevState: any) {
+    if (this.state.enable === false) {
+      setTimeout(() => {
+        this.setState({enable: true});
+      }, 500);
+    }
   }
 
   public render() {
     const {data, id} = this.props;
     if (data.users.length > 1) {
       return (
-        <TouchableOpacity key={`${id}`} onPress={() => this.props.getMessages(data.group_id)}>
+        <TouchableOpacity key={`${id}`} onPress={() => this.handlePress()}>
           <View style={styles.conversationItemStyle}>
             <View style={styles.imageContainerStyle}>
               <Image
@@ -44,7 +55,7 @@ export default class ConversationItem extends React.Component<any, any> {
     }
     else {
       return (
-        <TouchableOpacity key={`${id}`} onPress={() => this.props.getMessages(data.group_id)}>
+        <TouchableOpacity key={`${id}`} onPress={() => this.handlePress()}>
           <View style={styles.conversationItemStyle}>
             <View style={styles.imageContainerStyle}>
               <Image
@@ -64,6 +75,14 @@ export default class ConversationItem extends React.Component<any, any> {
           </View>
         </TouchableOpacity>
       );
+    }
+  }
+
+  private handlePress = () => {
+    const {data} = this.props;
+    if (this.state.enable) {
+      this.setState({enable: false});
+      this.props.getMessages(data.group_id);
     }
   }
 

@@ -1,11 +1,12 @@
 {
-  "name": "Qandor-mobile",
+  "name": "react_native_with_typescript_redux",
   "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
     "build": "tsc",
+    "link": "node node_modules/react-native/local-cli/cli.js link",
     "android": "adb reverse tcp:8081 tcp:8081 && node node_modules/react-native/local-cli/cli.js run-android",
     "ios": "node node_modules/react-native/local-cli/cli.js run-ios"
   },

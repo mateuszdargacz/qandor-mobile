@@ -6,7 +6,7 @@ const {GiftedChat} = require('react-native-gifted-chat');
 
 export default class Chat extends React.Component<any, any> {
   public static navigationOptions = ({navigation}: any) => {
-    console.log('navigation: ', navigation);
+    // console.log('navigation: ', navigation);
     return({
       title: 'Unknown',
       headerLeft:
@@ -39,7 +39,6 @@ export default class Chat extends React.Component<any, any> {
   }
 
   public componentWillMount() {
-    console.log('Chat componentWillMount');
     this.setState({ messages:  [
       {
         _id: Math.round(Math.random() * 1000000),

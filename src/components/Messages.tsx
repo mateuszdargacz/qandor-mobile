@@ -44,10 +44,7 @@ export default class Messages extends React.Component<any, any> {
           <FlatList
             data={data}
             renderItem={({item, index}) => this.renderListItem(item, index)}
-            keyExtractor={({item, index}) => {
-              console.log('index: ', index);
-              return `${index}`;
-            }}
+            keyExtractor={(item, index) => `${index}`}
           />
         </View>
       </View>

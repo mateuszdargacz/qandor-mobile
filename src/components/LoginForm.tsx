@@ -22,7 +22,6 @@ export default class LoginForm extends React.Component<any, any> {
   }
 
   public render() {
-    console.log('login form: ', this.props);
     return (
       <View style={styles.container}>
         <View style={styles.top}>
@@ -151,8 +150,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    // borderWidth: 1,
-    // borderColor: '#000',
   },
   rememberMeStyle: {
     height: 20,
@@ -172,8 +169,6 @@ const styles = StyleSheet.create({
     flex: 2,
     width: '90%',
     paddingBottom: 20,
-    // borderWidth: 1,
-    // borderColor: '#000',
   },
   signInButton: {
     margin: 0,
@@ -186,8 +181,6 @@ const styles = StyleSheet.create({
     margin: 0,
     padding: 0,
     marginTop: 10,
-    // borderWidth: 1,
-    // borderColor: '#000',
   },
   signUpButtonText: {
     color: '#2078f5',
