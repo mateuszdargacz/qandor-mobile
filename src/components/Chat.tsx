@@ -7,6 +7,7 @@ const {GiftedChat} = require('react-native-gifted-chat');
 export default class Chat extends React.Component<any, any> {
   public static navigationOptions = ({navigation}: any) => {
     // console.log('navigation: ', navigation);
+    const {params} = navigation.state;
     return({
       title: 'Unknown',
       headerLeft:
@@ -19,13 +20,10 @@ export default class Chat extends React.Component<any, any> {
           />
         </TouchableOpacity>,
       headerRight:
-        <TouchableOpacity onPress={() => {
-          console.log('clicked on profile');
-          navigation.navigate({routeName: 'Profile'});
-        }}>
+        <TouchableOpacity onPress={() => params.showProfile()}>
           <Image
             style={styles.imageMiniStyle}
-            source={{uri: "file:///Users/michal/Desktop/profile.png"}}
+            source={{uri: 'file:///Users/michal/Desktop/profile.png'}}
           />
         </TouchableOpacity>,
     });
@@ -115,6 +113,9 @@ export default class Chat extends React.Component<any, any> {
         },
       },
     ]});
+
+    const {navigation} = this.props;
+    navigation.setParams({showProfile: this.showProfile});
   }
 
   public render() {
@@ -141,6 +142,10 @@ export default class Chat extends React.Component<any, any> {
     this.setState((previousState) => ({
       messages: GiftedChat.append(previousState.messages, messages),
     }));
+  }
+
+  private showProfile = () => {
+    this.props.navigation.navigate('Profile');
   }
 }
 
