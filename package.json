@@ -58,5 +58,10 @@
       "<rootDir>/lib/"
     ],
     "cacheDirectory": ".jest/cache"
+  },
+  "rnpm": {
+    "assets": [
+	    "./assets/"
+    ]
   }
 }

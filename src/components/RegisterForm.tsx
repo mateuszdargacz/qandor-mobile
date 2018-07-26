@@ -28,10 +28,11 @@ export default class LoginForm extends React.Component<any, any> {
       <View style={styles.container}>
         <View style={styles.top}>
           <View style={styles.ImageContainerStyle}>
-            <Image
+          <Image
               style={styles.ImageStyle}
-              source={require('../../src/Images/logo.png')}
+              source={require('../../assets/logo02.png')}
             />
+            <Text style={styles.logoText}>Qandor</Text>
           </View>
           <View style={styles.inputContainerStyle}>
             <TextInput
@@ -102,24 +103,16 @@ export default class LoginForm extends React.Component<any, any> {
   }
 
   private enableSignUp = (text: string) => {
-    console.log('passwd', this.state.password1);
-    console.log('username', this.state.username);
-    console.log('validPass', this.state.validPassword2);
-    console.log('validEmail', this.state.validEmail);
-    console.log('signUp', this.state.password1 !== '' && this.state.username !== '' && this.state.password2 !== '' && this.state.email !== '');
-    this.setState({signUp: text && this.state.password1 !== '' && this.state.username !== '' && this.state.password2 !== '' &&
-                   this.state.email !== ''});
+    this.setState({signUp: text && this.state.password1 !== '' && this.state.username !== '' &&
+                   this.state.password2 !== '' && this.state.email !== ''});
   }
 
   private validateEmail = () => {
     const reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    console.log('validateEmail: ', reg.test(this.state.email));
     return reg.test(this.state.email);
   }
 
   private validatePassword2 = () => {
-    console.log('passwd1: ', this.state.password1);
-    console.log('passwd2: ', this.state.password2);
     return this.state.password2 === this.state.password1 && this.state.password1 !== '';
   }
 
@@ -162,8 +155,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   ImageStyle: {
-    height: 180,
-    width: 180,
+    height: 90,
+    width: 90,
+  },
+  logoText: {
+    fontSize: 28,
+    color: '#2077f4',
+    fontFamily: 'Montserrat-Bold',
   },
   inputContainerStyle: {
     flex: 3,
@@ -182,8 +180,6 @@ const styles = StyleSheet.create({
     flex: 1,
     width: '80%',
     justifyContent: 'center',
-    // borderWidth: 1,
-    // borderColor: '#000',
   },
   errorStyle: {
     fontSize: 12,
@@ -196,8 +192,6 @@ const styles = StyleSheet.create({
     marginRight: -15,
     marginTop: 20,
     height: 55,
-    // borderWidth: 1,
-    // borderColor: '#000',
   },
   signInButtonText: {
     color: '#2078f5',

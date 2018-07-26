@@ -8,7 +8,7 @@ import Chat from './components/Chat';
 import Directory from './components/Directory';
 import LoadingScreen from './components/LoadingScreen';
 import LoginForm from './components/LoginForm';
-import Messages from './components/Messages';
+import ChannelList from './components/ChannelList';
 import RegisterForm from './components/RegisterForm';
 import Teams from './components/Teams';
 import Profile from './components/Profile';
@@ -29,8 +29,8 @@ const TeamsNav = StackNavigator({
   navigationOptions: {...navigationOptions},
 });
 
-const MessagesNav = StackNavigator({
-  Messages: {screen: Messages},
+const Channels = StackNavigator({
+  ChannelList: {screen: ChannelList},
   Chat: {screen: Chat, navigationOptions: { tabBarVisible: false  }},
   Profile: {screen: Profile},
 }, {
@@ -39,13 +39,13 @@ const MessagesNav = StackNavigator({
 
 const TabBar = TabNavigator({
   Teams: {screen: TeamsNav},
-  Conversations: {screen: MessagesNav},
+  Channels: {screen: Channels},
   Directory: {screen: Directory},
 }, {
   animationEnabled: false,
   tabBarComponent: TabBarBottom,
   tabBarPosition: 'bottom',
-  initialRouteName: 'Conversations',
+  initialRouteName: 'Channels',
   swipeEnabled: false,
   tabBarOptions: {
     activeTintColor: '#2077f5',

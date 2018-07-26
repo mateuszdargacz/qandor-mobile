@@ -28,8 +28,9 @@ export default class LoginForm extends React.Component<any, any> {
           <View style={styles.ImageContainerStyle}>
             <Image
               style={styles.ImageStyle}
-              source={require('../../src/Images/logo.png')}
+              source={require('../../assets/logo02.png')}
             />
+            <Text style={styles.logoText}>Qandor</Text>
           </View>
           <View style={styles.inputContainerStyle}>
             <TextInput
@@ -57,7 +58,7 @@ export default class LoginForm extends React.Component<any, any> {
               checked={this.state.rememberMe}
               onPress={() => this.setState({rememberMe: !this.state.rememberMe})}
               title="Remember Me"
-              textStyle={{fontSize: 13, color: '#b6b6b6'}}
+              textStyle={styles.rememberMeTextStyle}
               style={styles.rememberMeStyle}
               checkedColor="#2077f4"
             />
@@ -83,8 +84,8 @@ export default class LoginForm extends React.Component<any, any> {
               onPress={() => this.props.navigation.navigate('MainScreen')}
             />
           </View>
-          <View style={{flex: 1}}>
-            <Text style={{textAlign: 'center', color: '#c7c7c7'}}>Don't have an account?</Text>
+          <View style={{flex: 1, marginTop: 10}}>
+            <Text style={styles.signUpText}>Don't have an account?</Text>
             <ReactElements.Button
               title="SIGN UP"
               backgroundColor="transparent"
@@ -128,8 +129,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   ImageStyle: {
-    height: 180,
-    width: 180,
+    height: 90,
+    width: 90,
+  },
+  logoText: {
+    fontSize: 28,
+    color: '#2077f4',
+    fontFamily: 'Montserrat-Bold',
   },
   inputContainerStyle: {
     flex: 3,
@@ -155,6 +161,11 @@ const styles = StyleSheet.create({
     height: 20,
     backgroundColor: 'transparent',
   },
+  rememberMeTextStyle: {
+    fontSize: 13,
+    fontWeight: 'normal',
+    color: '#b6b6b6',
+  },
   forgotPassStyle: {
     color: '#287af4',
     fontSize: 14,
@@ -172,7 +183,7 @@ const styles = StyleSheet.create({
   },
   signInButton: {
     margin: 0,
-    marginTop: 30,
+    marginTop: 40,
     marginLeft: -15,
     marginRight: -15,
     height: 55,
@@ -181,6 +192,11 @@ const styles = StyleSheet.create({
     margin: 0,
     padding: 0,
     marginTop: 10,
+  },
+  signUpText: {
+    textAlign: 'center',
+    fontSize: 15,
+    color: '#c7c7c7',
   },
   signUpButtonText: {
     color: '#2078f5',
