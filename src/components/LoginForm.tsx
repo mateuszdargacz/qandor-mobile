@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {Image, StyleSheet, Text, TextInput, View} from 'react-native';
-import {IState} from '../reducers/AuthReducer';
+import {IAppState} from '../reducers';
 
 const { connect } = require('react-redux');
 const ReactElements = require('react-native-elements');

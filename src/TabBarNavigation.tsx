@@ -12,7 +12,7 @@ import ChannelList from './components/ChannelList';
 import RegisterForm from './components/RegisterForm';
 import Teams from './components/Teams';
 import Profile from './components/Profile';
-import {IState} from './reducers/AuthReducer';
+import {IAppState} from './reducers/';
 
 const navigationOptions = {
   headerStyle: {
@@ -57,15 +57,15 @@ const TabBar = TabNavigator({
 });
 
 const BaseRouter = StackNavigator({
+  MainScreen: {screen: TabBar},
   Login: {screen: LoginForm},
   Loading: {screen: LoadingScreen},
   RegisterForm: {screen: RegisterForm},
-  MainScreen: {screen: TabBar},
 }, {
   headerMode: 'none',
 });
 
-class TabBarNavigation extends React.Component<any, IState> {
+class TabBarNavigation extends React.Component<any, IAppState> {
   public render() {
     const {dispatch, navigationState} = this.props;
     return (
@@ -77,7 +77,7 @@ class TabBarNavigation extends React.Component<any, IState> {
   }
 }
 
-const mapStateToProps = (state: IState) => {
+const mapStateToProps = (state: IAppState) => {
   return {
     navigationState: state.baseRouting,
   };

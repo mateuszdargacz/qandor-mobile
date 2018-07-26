@@ -1,15 +1,30 @@
 import * as React from 'react';
 import {FlatList, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 
+// const ImageSvg = require('react-native-remote-svg');
 const ReactElements = require('react-native-elements');
+const { connect } = require('react-redux');
 
 import ChannelItem from './ChannelItem';
 import Search from './Search';
+import {IAppState} from '../reducers';
+import { getChannels } from '../actions/ChannelActions';
 
+
+@connect(
+  (state: IAppState) => {
+    const { channels } = state;
+    return { channels }
+  }, {getChannels},
+)
 export default class Messages extends React.Component<any, any> {
   public static navigationOptions = {
     title: 'Messages',
     tabBarIcon: () => (
+        // <ImageSvg
+        //   source={{uri: 'https://upload.wikimedia.org/wikipedia/commons/6/67/Firefox_Logo%2C_2017.svg'}}
+        //   style={{width: 30, height: 30}}
+        // />
         <ReactElements.Icon name="account-circle" color="#2077f5"/>
     ),
     headerLeft:
@@ -32,20 +47,26 @@ export default class Messages extends React.Component<any, any> {
     super(props);
   }
 
+  public componentWillMount() {
+    this.props.getChannels();
+  }
+
   public render() {
-    const data = require('../../messages.json');
-    console.log(`data: ${data[0].user}`);
+    console.log(`data: `, this.props);
     return(
       <View style={styles.container}>
         <View style={styles.searchContainerStyle}>
           <Search/>
         </View>
         <View style={styles.listStyle}>
-          <FlatList
-            data={data}
-            renderItem={({item, index}) => this.renderListItem(item, index)}
-            keyExtractor={(item, index) => `${index}`}
-          />
+          {
+            this.props.channels.length > 0 ?
+              <FlatList
+                data={this.props.channels}
+                renderItem={({item, index}) => this.renderListItem(item, index)}
+                keyExtractor={(item, index) => `${index}`}
+              /> : null
+          }
         </View>
       </View>
     );

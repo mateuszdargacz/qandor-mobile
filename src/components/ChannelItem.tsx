@@ -2,8 +2,7 @@ import * as React from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 
 const { connect } = require('react-redux');
-
-import { getMessages } from '../actions/ConversationActions';
+import { getMessages } from '../actions/ChannelActions';
 
 @connect(
   null, { getMessages },
@@ -30,9 +29,9 @@ export default class ConversationItem extends React.Component<any, any> {
   private renderNames = () => {
     const {users} = this.props.data;
     const group = new Array();
-    users.slice(0, 3).forEach((user: string) => {
-      user = user.split(' ')[0];
-      group.push(user);
+    users.slice(0, 3).forEach((user: object) => {
+      const username = Object.keys(user)[0].split(' ')[0];
+      group.push(username);
     });
     let newGroup = group.join(' & ');
     if (users.length > 3) {
@@ -84,7 +83,7 @@ export default class ConversationItem extends React.Component<any, any> {
             </View>
             <View style={styles.conversationInfoStyle}>
               <View style={styles.conversationHeaderStyle}>
-                <Text style={styles.participantsNamesStyle}>{data.users[0]}</Text>
+                <Text style={styles.participantsNamesStyle}>{Object.keys(data.users[0])[0]}</Text>
                 <Text style={styles.timestampStyle}>{data.lastMessageTime}</Text>
               </View>
               <View style={styles.lastConversationBody}>

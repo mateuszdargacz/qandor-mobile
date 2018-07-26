@@ -2,64 +2,56 @@
 	{
 		"group_id": 1,
 		"image": "file:///Users/michal/Desktop/profile.png",
-		"users": ["Linda Smith"],
-		"users_id": [2],
+		"users": [{"Linda Smith": 2}],
 		"lastMessageTime": "12:30 PM",
 		"lastMessageText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ut erat ullamcorper, posuere nisl non, varius ligula. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas."
 	},
 	{
 		"group_id": 2,
 		"image": "file:///Users/michal/Desktop/profile.png",
-		"users": ["Linda Smith", "Richard Smith"],
-		"users_id": [2, 4],
+		"users": [{"Linda Smith": 2}, {"Richard Smith": 4}],
 		"lastMessageTime": "12:30 PM",
 		"lastMessageText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ut erat ullamcorper, posuere nisl non, varius ligula. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas."
 	},
 	{
 		"group_id": 3,
 		"image": "file:///Users/michal/Desktop/profile.png",
-		"users": ["Alex", "Rudy", "Anka"],
-		"users_id": [5,6,7],
+		"users": [{"Alex": 5}, {"Rudy": 6}, {"Anka": 7}],
 		"lastMessageTime": "12:30 PM",
 		"lastMessageText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ut erat ullamcorper, posuere nisl non, varius ligula. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas."
 	},
 	{
 		"group_id": 8,
 		"image": "file:///Users/michal/Desktop/profile.png",
-		"users": ["Alex", "Rudy", "Anka","Zośka"],
-		"users_id": [5,6,7,8],
+		"users": [{"Alex": 5}, {"Rudy": 6}, {"Anka": 7}, {"Zośka": 8}],
 		"lastMessageTime": "12:30 PM",
 		"lastMessageText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ut erat ullamcorper, posuere nisl non, varius ligula. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas."
 	},
 	{
 		"group_id": 4,
 		"image": "file:///Users/michal/Desktop/profile.png",
-		"users": ["Linda Smith"],
-		"users_id": [2],
+		"users": [{"Linda Smith": 2}],
 		"lastMessageTime": "12:30 PM",
 		"lastMessageText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ut erat ullamcorper, posuere nisl non, varius ligula. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas."
 	},
 	{
 		"group_id": 5,
 		"image": "file:///Users/michal/Desktop/profile.png",
-		"users": ["Linda Smith"],
-		"users_id": [2],
+		"users": [{"Linda Smith": 2}],
 		"lastMessageTime": "12:30 PM",
 		"lastMessageText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ut erat ullamcorper, posuere nisl non, varius ligula. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas."
 	},
 	{
 		"group_id": 6,
 		"image": "file:///Users/michal/Desktop/profile.png",
-		"users": ["Linda Smith"],
-		"users_id": [2],
+		"users": [{"Linda Smith": 2}],
 		"lastMessageTime": "12:30 PM",
 		"lastMessageText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ut erat ullamcorper, posuere nisl non, varius ligula. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas."
 	},
 	{
 		"group_id": 7,
 		"image": "file:///Users/michal/Desktop/profile.png",
-		"users": ["Linda Smith"],
-		"users_id": [2],
+		"users": [{"Linda Smith": 2}],
 		"lastMessageTime": "12:30 PM",
 		"lastMessageText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ut erat ullamcorper, posuere nisl non, varius ligula. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas."
 	}

@@ -3613,6 +3613,10 @@ react-native-parsed-text@^0.0.20:
     babel-plugin-check-es2015-constants "6.22.0"
     prop-types "^15.5.10"
 
+react-native-remote-svg@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/react-native-remote-svg/-/react-native-remote-svg-1.2.0.tgz#0382d522913e01dc19025efe8e0f8b1a55692a55"
+
 react-native-scrollable-mixin@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/react-native-scrollable-mixin/-/react-native-scrollable-mixin-1.0.1.tgz#34a32167b64248594154fd0d6a8b03f22740548e"

@@ -1,25 +1,14 @@
 import {LOGIN_SUCCESS} from '../actions/types';
 import {IAction} from './';
 
-interface IAuth {
-  access_token: string;
-}
-
-interface IState {
-  access_token: string;
-  auth: IAuth;
-  baseRouting: object;
-}
-
-const INITIAL_STATE = {access_token: '', auth: null, baseRouting: null};
+const INITIAL_STATE = {access_token: ''};
 
 export default (state = INITIAL_STATE, action: IAction) => {
   switch (action.type) {
     case LOGIN_SUCCESS:
-      return {...state, ...INITIAL_STATE, access_token: action.payload};
+      return {...state, access_token: action.payload};
     default:
       return state;
   }
 };
 
-export {IState};
