@@ -4,3 +4,4 @@ export const GET_CHANNELS = 'get_channels';
 export const GET_CHANNEL_CONVESATION = 'get_channel_convesation';
 export const GET_PROFILE = 'get_profile';
 export const CLEAR_PROFILE = 'clear_profile';
+export const GET_TEAM = 'get_team';

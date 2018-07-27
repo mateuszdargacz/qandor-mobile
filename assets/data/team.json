@@ -1,0 +1,30 @@
+{
+	"members":
+	[
+		{
+			"userID": 11,
+			"name": "Linda Smith",
+			"position": "Financial Advisor",
+			"image": "file:///Users/michal/ReactProjects/qandor-mobile/assets/images/stock01.jpg"
+		},
+		{
+			"userID": 22,
+			"name": "Shaun Sackett",
+			"position": "Independent Advisor",
+			"image": "file:///Users/michal/ReactProjects/qandor-mobile/assets/images/stock02.jpg"
+		},
+		{
+			"userID": 33,
+			"name": "Steven Swap",
+			"position": "Insurence Agent",
+			"image": "file:///Users/michal/ReactProjects/qandor-mobile/assets/images/stock04.jpg"
+		},
+		{
+			"userID": 44,
+			"name": "Steven Swap",
+			"position": "",
+			"image": "file:///Users/michal/ReactProjects/qandor-mobile/assets/images/stock04.jpg"
+		}
+	],
+	"recomended": []
+}

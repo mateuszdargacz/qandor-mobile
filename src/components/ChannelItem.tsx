@@ -2,7 +2,7 @@ import * as React from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 
 const { connect } = require('react-redux');
-import { getMessages } from '../actions/ChannelActions';
+import { getMessages } from '../actions/ChatActions';
 
 @connect(
   null, { getMessages },

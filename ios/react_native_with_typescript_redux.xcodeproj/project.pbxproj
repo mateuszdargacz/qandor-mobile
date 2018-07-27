@@ -48,6 +48,7 @@
 		F2F65324FA934274AA128889 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 903AC282F4694D38860A2F8F /* Zocial.ttf */; };
 		BE147BD5174D44C897A9C382 /* Montserrat-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3907EAD6B1264B1B93EB376A /* Montserrat-Bold.otf */; };
 		83E99C37F5054D04AE05E56B /* libRCTVideo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 853E3FFA22DE4CEBADC914CC /* libRCTVideo.a */; };
+		C9DCF9936E2B434D80245676 /* Montserrat-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6B48E70ACFF54DE6B90951F9 /* Montserrat-Regular.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -282,6 +283,7 @@
 		3907EAD6B1264B1B93EB376A /* Montserrat-Bold.otf */ = {isa = PBXFileReference; name = "Montserrat-Bold.otf"; path = "../assets/fonts/Montserrat-Bold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		27DA26E4C3C14F3592C32149 /* RCTVideo.xcodeproj */ = {isa = PBXFileReference; name = "RCTVideo.xcodeproj"; path = "../node_modules/react-native-video/ios/RCTVideo.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		853E3FFA22DE4CEBADC914CC /* libRCTVideo.a */ = {isa = PBXFileReference; name = "libRCTVideo.a"; path = "libRCTVideo.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		6B48E70ACFF54DE6B90951F9 /* Montserrat-Regular.otf */ = {isa = PBXFileReference; name = "Montserrat-Regular.otf"; path = "../assets/fonts/Montserrat-Regular.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -529,6 +531,7 @@
 				1089CBEE3EAA4AB68FAC01FE /* SimpleLineIcons.ttf */,
 				903AC282F4694D38860A2F8F /* Zocial.ttf */,
 				3907EAD6B1264B1B93EB376A /* Montserrat-Bold.otf */,
+				6B48E70ACFF54DE6B90951F9 /* Montserrat-Regular.otf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -903,6 +906,7 @@
 				49D0A93897F9445E904E6DA9 /* SimpleLineIcons.ttf in Resources */,
 				F2F65324FA934274AA128889 /* Zocial.ttf in Resources */,
 				BE147BD5174D44C897A9C382 /* Montserrat-Bold.otf in Resources */,
+				C9DCF9936E2B434D80245676 /* Montserrat-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,0 +1,76 @@
+[
+	{
+	  "_id": 23,
+	  "text": "#awesome",
+	  "createdAt": "2018-07-27T09:48:33.701Z",
+	  "user": {
+		"_id": 1,
+		"name": "Developer"
+	  }
+	},
+	{
+	  "_id": 24,
+	  "text": "",
+	  "createdAt": "2018-07-27T09:48:33.701Z",
+	  "user": {
+		"_id": 2,
+		"name": "React Native"
+	  },
+	  "image": "https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?cs=srgb&dl=beauty-bloom-blue-67636.jpg&fm=jpg",
+	  "sent": true,
+	  "received": true
+	},
+	{
+	  "_id": 25,
+	  "text": "Send me a picture!",
+	  "createdAt": "2018-07-27T09:48:33.701Z",
+	  "user": {
+		"_id": 1,
+		"name": "Developer"
+	  }
+	},
+	{
+	  "_id": 26,
+	  "text": "",
+	  "createdAt": "2018-07-27T09:48:33.701Z",
+	  "user": {
+		"_id": 2,
+		"name": "React Native"
+	  },
+	  "sent": true,
+	  "received": true,
+	  "location": {
+		"latitude": 48.864601,
+		"longitude": 2.398704
+	  }
+	},
+	{
+	  "_id": 27,
+	  "text": "Where are you?",
+	  "createdAt": "2018-07-27T09:48:33.701Z",
+	  "user": {
+		"_id": 1,
+		"name": "Developer"
+	  }
+	},
+	{
+	  "_id": 28,
+	  "text": "Yes, and I use Gifted Chat!",
+	  "createdAt": "2018-07-27T09:48:33.701Z",
+	  "user": {
+		"_id": 2,
+		"name": "React Native"
+	  },
+	  "sent": true,
+	  "received": true
+	},
+	{
+	  "_id": 29,
+	  "text": "Are you building a chat app?",
+	  "createdAt": "2018-07-27T09:48:33.701Z",
+	  "user": {
+		"_id": 1,
+		"name": "Developer"
+	  }
+	}
+  ]

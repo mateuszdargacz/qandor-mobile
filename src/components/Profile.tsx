@@ -7,10 +7,10 @@ const { connect } = require('react-redux');
 const ReactElements = require('react-native-elements');
 
 import { getProfile, clearProfile } from '../actions/ProfileActions';
+import {ArrowBack} from './common/ArrowBack';
 
 @connect(
   (state: IAppState) => {
-    console.log('Profile state: ', state);
     const { profile } = state;
     return { profile }
   }, { getProfile, clearProfile },
@@ -22,10 +22,7 @@ export default class Profile extends React.Component<any, any> {
       title: 'Profile',
       headerLeft:
         <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Image
-            source={require('../../assets/icons/arrow.png')}
-            style={styles.backIconStyle}
-          />
+          <ArrowBack/>
         </TouchableOpacity>,
       tabBarIcon: () => (
         <Image
@@ -38,10 +35,6 @@ export default class Profile extends React.Component<any, any> {
 
   constructor(props: any) {
     super(props);
-  }
-
-  public componentWillMount() {
-    this.props.getProfile(0);
   }
 
   public componentWillUnmount() {
@@ -184,11 +177,6 @@ export default class Profile extends React.Component<any, any> {
 }
 
 const styles = StyleSheet.create({
-  backIconStyle: {
-    marginLeft: 15,
-    width: 15,
-    height: 20,
-  },
   container: {
     alignItems: 'center',
     backgroundColor: '#fff',

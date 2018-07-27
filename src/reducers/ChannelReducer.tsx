@@ -1,6 +1,5 @@
 import {
   GET_CHANNELS,
-  GET_CHANNEL_CONVESATION,
 } from '../actions/types';
 import {IAction} from './';
 

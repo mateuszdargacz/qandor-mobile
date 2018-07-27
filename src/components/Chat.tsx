@@ -1,9 +1,21 @@
 import * as React from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {IAppState} from '../reducers';
 
 const ReactElements = require('react-native-elements');
+const { connect } = require('react-redux');
 const {GiftedChat} = require('react-native-gifted-chat');
 
+import { getProfile } from '../actions/ProfileActions';
+import {ArrowBack} from './common/ArrowBack';
+
+@connect(
+  (state: IAppState) => {
+    console.log('Profile state: ', state);
+    const { chat } = state;
+    return { chat }
+  }, { getProfile },
+)
 export default class Chat extends React.Component<any, any> {
   public static navigationOptions = ({navigation}: any) => {
     // console.log('navigation: ', navigation);
@@ -12,10 +24,7 @@ export default class Chat extends React.Component<any, any> {
       title: 'Unknown',
       headerLeft:
         <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Image
-            source={require('../../assets/icons/arrow.png')}
-            style={styles.backIconStyle}
-          />
+          <ArrowBack/>
         </TouchableOpacity>,
       headerRight:
         <TouchableOpacity onPress={() => params.showProfile()}>
@@ -35,91 +44,15 @@ export default class Chat extends React.Component<any, any> {
   }
 
   public componentWillMount() {
-    this.setState({ messages:  [
-      {
-        _id: Math.round(Math.random() * 1000000),
-        text: '#awesome',
-        createdAt: new Date(),
-        user: {
-          _id: 1,
-          name: 'Developer',
-        },
-      },
-      {
-        _id: Math.round(Math.random() * 1000000),
-        text: '',
-        createdAt: new Date(),
-        user: {
-          _id: 2,
-          name: 'React Native',
-        },
-        image: 'https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?cs=srgb&dl=beauty-bloom-blue-67636.jpg&fm=jpg',
-        sent: true,
-        received: true,
-      },
-      {
-        _id: Math.round(Math.random() * 1000000),
-        text: 'Send me a picture!',
-        createdAt: new Date(),
-        user: {
-          _id: 1,
-          name: 'Developer',
-        },
-      },
-      {
-        _id: Math.round(Math.random() * 1000000),
-        text: '',
-        createdAt: new Date(),
-        user: {
-          _id: 2,
-          name: 'React Native',
-        },
-        sent: true,
-        received: true,
-        location: {
-          latitude: 48.864601,
-          longitude: 2.398704
-        },
-      },
-      {
-        _id: Math.round(Math.random() * 1000000),
-        text: 'Where are you?',
-        createdAt: new Date(),
-        user: {
-          _id: 1,
-          name: 'Developer',
-        },
-      },
-      {
-        _id: Math.round(Math.random() * 1000000),
-        text: 'Yes, and I use Gifted Chat!',
-        createdAt: new Date(),
-        user: {
-          _id: 2,
-          name: 'React Native',
-        },
-        sent: true,
-        received: true
-      },
-      {
-        _id: Math.round(Math.random() * 1000000),
-        text: 'Are you building a chat app?',
-        createdAt: new Date(),
-        user: {
-          _id: 1,
-          name: 'Developer',
-        },
-      },
-    ]});
-
     const {navigation} = this.props;
     navigation.setParams({showProfile: this.showProfile});
   }
 
   public render() {
+    const {chat} = this.props;
     return(
       <GiftedChat
-        messages={this.state.messages}
+        messages={chat.messages}
         onSend={(messages: any) => this.onSend(messages)}
         user={{
           _id: 1,
@@ -143,16 +76,11 @@ export default class Chat extends React.Component<any, any> {
   }
 
   private showProfile = () => {
-    this.props.navigation.navigate('Profile');
+    this.props.getProfile(0);
   }
 }
 
 const styles = StyleSheet.create({
-  backIconStyle: {
-    marginLeft: 15,
-    width: 15,
-    height: 20,
-  },
   imageMiniStyle: {
     width: 36,
     height: 36,

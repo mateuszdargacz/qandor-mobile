@@ -8,12 +8,13 @@ import {
 } from './types';
 
 export const getProfile = (userID: number) => {
-  const data = require('../../profile.json');
+  const data = require('../../assets/data/profile.json');
   return(dispatch: Redux.Dispatch<any>) => {
     // axios.get(`${API_URL}/users/${userID}`)
     //   .then()
     //   .catch((error) => console.log(error));
     dispatch({type: GET_PROFILE, payload: data});
+    dispatch(NavigationActions.navigate({routeName: 'Profile'}));
   }
 }
 

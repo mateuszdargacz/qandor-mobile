@@ -3,6 +3,8 @@ import {BaseRouter, TabBar} from '../TabBarNavigation';
 import AuthReducer from './AuthReducer';
 import ChannelReducer from './ChannelReducer';
 import ProfileReducer from './ProfileReducer';
+import ChatReducer from './ChatReducer';
+import TeamReducer from './TeamReducer';
 
 export interface IAction {
   type: string;
@@ -32,11 +34,30 @@ interface IChannel {
   image: string;
 }
 
+interface IChat {
+  groupID: number;
+  messages: object[];
+}
+
+export interface IMember {
+  userID: number;
+  name: string;
+  position: string;
+  image: String;
+}
+
+interface ITeam {
+  members: IMember[];
+  recomended: any[]
+}
+
 export interface IAppState {
   access_token: string;
   auth: IAuth;
   profile: IProfile;
   channels: IChannel[];
+  chat: IChat;
+  team: ITeam;
   baseRouting: object;
 }
 
@@ -44,6 +65,8 @@ export default combineReducers({
   auth: AuthReducer,
   channels: ChannelReducer,
   profile: ProfileReducer,
+  chat: ChatReducer,
+  team: TeamReducer,
   baseRouting: (state, action) => BaseRouter.router.getStateForAction(action, state),
   tabBarRouting: (state, action) => TabBar.router.getStateForAction(action, state)
 });

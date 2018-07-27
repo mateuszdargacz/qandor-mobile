@@ -10,21 +10,23 @@ import LoadingScreen from './components/LoadingScreen';
 import LoginForm from './components/LoginForm';
 import ChannelList from './components/ChannelList';
 import RegisterForm from './components/RegisterForm';
-import Teams from './components/Teams';
+import Team from './components/Team';
 import Profile from './components/Profile';
-import {IAppState} from './reducers/';
+import {IAppState} from './reducers';
 
 const navigationOptions = {
   headerStyle: {
     backgroundColor: '#2077f5',
+    borderWidth: 0,
   },
   headerTitleStyle: {
     color: 'white',
   },
 };
 
-const TeamsNav = StackNavigator({
-  Teams: {screen: Teams},
+const TeamNav = StackNavigator({
+  TeamView: {screen: Team},
+  Profile: {screen: Profile},
 }, {
   navigationOptions: {...navigationOptions},
 });
@@ -32,7 +34,6 @@ const TeamsNav = StackNavigator({
 const Channels = StackNavigator({
   ChannelList: {screen: ChannelList},
   Chat: {screen: Chat, navigationOptions: { tabBarVisible: false  }},
-  Profile: {screen: Profile},
 }, {
   navigationOptions: {...navigationOptions},
 });
@@ -44,7 +45,7 @@ const Directories = StackNavigator({
 });
 
 const TabBar = TabNavigator({
-  Teams: {screen: TeamsNav},
+  Team: {screen: TeamNav},
   Channels: {screen: Channels},
   Directory: {screen: Directories},
 }, {
