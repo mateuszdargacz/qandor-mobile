@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {FlatList, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {FlatList, Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 
 // const ImageSvg = require('react-native-remote-svg');
 const ReactElements = require('react-native-elements');
@@ -19,26 +19,23 @@ import { getChannels } from '../actions/ChannelActions';
 )
 export default class Messages extends React.Component<any, any> {
   public static navigationOptions = {
-    title: 'Messages',
+    title:
+      <Text style={{fontWeight: 'bold', fontFamily: 'Montserrat-Bold'}}>Messages</Text>,
     tabBarIcon: () => (
-        // <ImageSvg
-        //   source={{uri: 'https://upload.wikimedia.org/wikipedia/commons/6/67/Firefox_Logo%2C_2017.svg'}}
-        //   style={{width: 30, height: 30}}
-        // />
-        <ReactElements.Icon name="account-circle" color="#2077f5"/>
+      <Image
+        source={require('../../assets/icons/message_icon.png')}
+        style={{width: 30, height: 30}}
+      />
     ),
     headerLeft:
       <TouchableOpacity>
-        <Text style={{color: '#fff', marginLeft: 15, fontSize: 14}}>Edit</Text>
+        <Text style={{color: '#fff', marginLeft: 15, fontSize: 16}}>Edit</Text>
       </TouchableOpacity>,
     headerRight:
       <TouchableOpacity>
-        <ReactElements.Icon
-          name="sticky-note"
-          type="font-awesome"
-          color="white"
-          size={18}
-          containerStyle={{marginRight: 15}}
+        <Image
+          source={require('../../assets/icons/new_message.png')}
+          style={{width: 25, height: 25, marginRight: 15, margin: 2, paddingBottom: 4}}
         />
       </TouchableOpacity>,
   };
@@ -52,7 +49,6 @@ export default class Messages extends React.Component<any, any> {
   }
 
   public render() {
-    console.log(`data: `, this.props);
     return(
       <View style={styles.container}>
         <View style={styles.searchContainerStyle}>
@@ -80,6 +76,9 @@ export default class Messages extends React.Component<any, any> {
 }
 
 const styles = StyleSheet.create({
+  headerTextStyle: {
+
+  },
   container: {
     alignItems: 'center',
     backgroundColor: '#FFF',

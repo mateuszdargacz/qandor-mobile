@@ -37,10 +37,16 @@ const Channels = StackNavigator({
   navigationOptions: {...navigationOptions},
 });
 
+const Directories = StackNavigator({
+  Files: {screen: Directory},
+}, {
+  navigationOptions: {...navigationOptions},
+});
+
 const TabBar = TabNavigator({
   Teams: {screen: TeamsNav},
   Channels: {screen: Channels},
-  Directory: {screen: Directory},
+  Directory: {screen: Directories},
 }, {
   animationEnabled: false,
   tabBarComponent: TabBarBottom,

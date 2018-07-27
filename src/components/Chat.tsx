@@ -138,7 +138,7 @@ export default class Chat extends React.Component<any, any> {
   }
 
   private onSend = (messages: any) => {
-    console.log('messages: ', messages);
+    // console.log('messages: ', messages);
     this.setState((previousState) => ({
       messages: GiftedChat.append(previousState.messages, messages),
     }));

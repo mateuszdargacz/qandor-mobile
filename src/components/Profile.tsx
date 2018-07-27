@@ -46,7 +46,7 @@ export default class Profile extends React.Component<any, any> {
 
   public render() {
     const {profile} = this.props;
-    const left = profile.rating * 28 + (Math.floor(profile.rating) - 1) * 7;
+    const revileStars = profile.rating * 29 + (Math.floor(profile.rating) - 1) * 7;
     if (profile && profile.name !== '') {
       return(
         <View style={styles.container}>
@@ -73,7 +73,6 @@ export default class Profile extends React.Component<any, any> {
                   </View>
                   <View style={{flexDirection: 'row'}}>
                     {this.renderStars()}
-                    <View style={[styles.starCover, {left}]}></View>
                   </View>
                 </View>
               </View>
@@ -127,18 +126,45 @@ export default class Profile extends React.Component<any, any> {
   }
 
   private renderStars = () => {
-    const array = [1, 2, 3, 4, 5];
+    const { rating } = this.props.profile;
+    const percent = 100 - ((rating - Math.floor(rating)) * 100);
+    const array = [];
+    let i = 0;
+    while (i < Math.ceil(rating) && i < 5) {
+      array.push(i);
+      i++;
+    }
+    console.log('array: ', array, rating, percent);
     return (
-      array.map((item, index) => (
-        <ReactElements.Icon
-          key={`${index}`}
-          name="star"
-          color="#12cf6e"
-          type="material"
-          size={35}
-          iconStyle={styles.starStyle}
-        />
-      ))
+      array.map((item, index) => {
+        if (index < Math.floor(rating)) {
+          return (
+            <View key={`${index}`}>
+              <ReactElements.Icon
+              name="star"
+              color="#12cf6e"
+              type="material"
+              size={35}
+              iconStyle={styles.starStyle}
+              />
+            </View>
+          );
+        }
+        else if (rating - Math.floor(rating) > 0) {
+          return (
+            <View key={`${index}`}>
+              <ReactElements.Icon
+              name="star"
+              color="#12cf6e"
+              type="material"
+              size={35}
+              iconStyle={styles.starStyle}
+              />
+              <View style={[styles.starCover, {width: `${percent}%`}]}></View>
+            </View>
+          );
+        }
+      })
     );
   }
 }
@@ -207,12 +233,12 @@ const styles = StyleSheet.create({
     marginTop: -5,
   },
   starCover: {
+    height: 40,
+    backgroundColor: '#fff',
     position: 'absolute',
     top: -5,
-    marginLeft: 4,
-    backgroundColor: '#f00',
-    height: 40,
-    width: 200,
+    right: 0,
+    // opacity: 0.4,
   },
   skillsContainerStyle: {
     flexDirection: 'row',
@@ -252,4 +278,3 @@ const styles = StyleSheet.create({
   },
 });
 
-// 4 28 7
