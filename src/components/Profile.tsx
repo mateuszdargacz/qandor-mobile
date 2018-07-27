@@ -1,19 +1,19 @@
 import * as React from 'react';
 import {Image, ScrollView, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-// import Video from 'react-native-video';
+import Video from 'react-native-video';
 import {IAppState} from '../reducers';
 
 const { connect } = require('react-redux');
 const ReactElements = require('react-native-elements');
 
-import { getProfile } from '../actions/ProfileActions';
+import { getProfile, clearProfile } from '../actions/ProfileActions';
 
 @connect(
   (state: IAppState) => {
     console.log('Profile state: ', state);
     const { profile } = state;
     return { profile }
-  }, { getProfile },
+  }, { getProfile, clearProfile },
 )
 export default class Profile extends React.Component<any, any> {
   public static navigationOptions = ({navigation, screenProps}: any) => {
@@ -22,13 +22,17 @@ export default class Profile extends React.Component<any, any> {
       title: 'Profile',
       headerLeft:
         <TouchableOpacity onPress={() => navigation.goBack()}>
-          <ReactElements.Icon
-            name="chevron-left"
-            type="font-awesome"
-            color="#fff"
-            iconStyle={styles.backIconStyle}
+          <Image
+            source={require('../../assets/icons/arrow.png')}
+            style={styles.backIconStyle}
           />
         </TouchableOpacity>,
+      tabBarIcon: () => (
+        <Image
+          source={require('../../assets/icons/message_icon.png')}
+          style={{width: 30, height: 30}}
+        />
+      ),
     });
   }
 
@@ -41,7 +45,7 @@ export default class Profile extends React.Component<any, any> {
   }
 
   public componentWillUnmount() {
-    console.log('Profile componentWillUnmount');
+    this.props.clearProfile();
   }
 
   public render() {
@@ -97,7 +101,7 @@ export default class Profile extends React.Component<any, any> {
                   showsHorizontalScrollIndicator={false}
                   showsVerticalScrollIndicator={false}
                 >
-                {this.renderVideos()}
+                  {this.renderVideos()}
                 </ScrollView>
               </View>
             </View>
@@ -111,7 +115,17 @@ export default class Profile extends React.Component<any, any> {
   }
 
   private renderVideos = () => {
-    return null;
+    const {videos} = this.props.profile;
+    console.log('videos: ', videos);
+    return videos.map((video: string, index: number) => (
+      <View style={styles.videosBucketStyle} key={index}>
+        <Video
+          source={{uri: video}}
+          style={styles.videoStyle}
+          paused={true}
+        />
+      </View>
+    ));
   }
 
   private renderSkills = () => {
@@ -172,6 +186,8 @@ export default class Profile extends React.Component<any, any> {
 const styles = StyleSheet.create({
   backIconStyle: {
     marginLeft: 15,
+    width: 15,
+    height: 20,
   },
   container: {
     alignItems: 'center',
@@ -267,6 +283,17 @@ const styles = StyleSheet.create({
   },
   videosContainerStyle: {
     
+  },
+  videosBucketStyle: {
+    width: 120,
+    height: 80,
+    margin: 10,
+    marginLeft: 0,
+    marginRight: 20,
+    backgroundColor: '#ddd',
+  },
+  videoStyle: {
+    height: '100%',
   },
   headerText: {
     fontWeight: 'bold',

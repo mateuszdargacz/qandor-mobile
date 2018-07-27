@@ -31,6 +31,13 @@
     "@types/react" "*"
     "@types/react-native" "*"
 
+"@types/react-native-video@2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@types/react-native-video/-/react-native-video-2.0.1.tgz#9770cc5d674893f5fa2fa3a1aa850e0c75165b3d"
+  dependencies:
+    "@types/react" "*"
+    "@types/react-native" "*"
+
 "@types/react-native@*", "@types/react-native@^0.47.6":
   version "0.47.8"
   resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.47.8.tgz#9ab9a8fc4e111b510c76f0fb4c2e2bb02fd0fb3d"
@@ -2651,6 +2658,10 @@ jsprim@^1.2.2:
     json-schema "0.2.3"
     verror "1.10.0"
 
+keymirror@0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/keymirror/-/keymirror-0.1.1.tgz#918889ea13f8d0a42e7c557250eee713adc95c35"
+
 kind-of@^3.0.2:
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-3.2.2.tgz#31ea21a734bab9bbb0f32466d893aea51e4a3c64"
@@ -3647,6 +3658,13 @@ react-native-vector-icons@^4.3.0:
     lodash "^4.0.0"
     prop-types "^15.5.10"
     yargs "^8.0.2"
+
+react-native-video@2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/react-native-video/-/react-native-video-2.1.0.tgz#5c5af940530c0db7abd1fe02ee679523382e639c"
+  dependencies:
+    keymirror "0.1.1"
+    prop-types "^15.5.10"
 
 react-native@0.47.1:
   version "0.47.1"
